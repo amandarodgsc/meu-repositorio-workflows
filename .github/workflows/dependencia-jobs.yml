@@ -1,0 +1,23 @@
+name: Workflow com Dependência de Jobs
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Passo 1
+        run: echo "Executando Job 1"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Passo 2
+        run: echo "Executando Job 2 após o Job 1"

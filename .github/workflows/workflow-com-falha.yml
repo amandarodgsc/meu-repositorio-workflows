@@ -1,0 +1,13 @@
+name: Workflow com Falha
+
+on: [push]
+
+jobs:
+  fail-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Passo que falha
+        run: exit 1  # Este passo irá falhar
